@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "07310dd5-2643-4fbc-94d3-f7b2331f08ce",
+		"name": "BASIC  API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44180707"
+	},
+	"item": [
+		{
+			"name": "Users_API",
+			"item": [
+				{
+					"name": "getUserById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \r\n        \"name\": \"shaziya\",\r\n        \"mobileNo\":747387438,\r\n        \"emailId\":\"shaziya@gamil.com\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}user/getUserById/6830665f9ec966f0f4de5d06",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"getUserById",
+								"6830665f9ec966f0f4de5d06"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletUserById",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \r\n        \"name\": \"shaziya\",\r\n        \"mobileNo\":747387438,\r\n        \"emailId\":\"shaziya@gamil.com\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}user/deleteUser/6830665f9ec966f0f4de5d06",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"deleteUser",
+								"6830665f9ec966f0f4de5d06"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createUser",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"inayat\",\r\n  \"lastName\": \"siddiqui\",\r\n  \"emailId\": \"insiddiqui@example.com\",\r\n  \"mobileNo\": 5568798099,\r\n  \"countryId\": \"682f80e337a0757ab866c53e\",\r\n  \"stateId\": \"682f80e437a0757ab866c56a\",\r\n  \"cityId\": \"682f80e537a0757ab866c570\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}user/createUser",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"createUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUserById",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"inayat\",\r\n  \"lastName\": \"siddiqui\",\r\n  \"emailId\": \"inayatsiddiqui@example.com\",\r\n  \"mobileNo\": 5568798099,\r\n  \"countryId\": \"682f80e337a0757ab866c53e\",\r\n  \"stateId\": \"682f80e437a0757ab866c56a\",\r\n  \"cityId\": \"682f80e537a0757ab866c570\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}user/updateUserById/683067279ec966f0f4de5d0e",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"updateUserById",
+								"683067279ec966f0f4de5d0e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllUsers",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}user/getAllUsers",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"getAllUsers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address_API",
+			"item": [
+				{
+					"name": "country",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}address/countries",
+							"host": [
+								"{{baseUrl}}address"
+							],
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "States",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}address/states/682f80e337a0757ab866c53e",
+							"host": [
+								"{{baseUrl}}address"
+							],
+							"path": [
+								"states",
+								"682f80e337a0757ab866c53e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cities",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}address/cities/682f80e437a0757ab866c56a",
+							"host": [
+								"{{baseUrl}}address"
+							],
+							"path": [
+								"cities",
+								"682f80e437a0757ab866c56a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

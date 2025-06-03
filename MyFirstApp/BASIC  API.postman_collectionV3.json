@@ -1,0 +1,740 @@
+{
+	"info": {
+		"_postman_id": "07310dd5-2643-4fbc-94d3-f7b2331f08ce",
+		"name": "BASIC  API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44180707"
+	},
+	"item": [
+		{
+			"name": "Users_API",
+			"item": [
+				{
+					"name": "getUserById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \r\n        \"name\": \"shaziya\",\r\n        \"mobileNo\":747387438,\r\n        \"emailId\":\"shaziya@gamil.com\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}user/getUserById/683eb17620f5aa73510fa33b",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"getUserById",
+								"683eb17620f5aa73510fa33b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletUserById",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \r\n        \"name\": \"shaziya\",\r\n        \"mobileNo\":747387438,\r\n        \"emailId\":\"shaziya@gamil.com\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}user/deleteUser/6830665f9ec966f0f4de5d06",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"deleteUser",
+								"6830665f9ec966f0f4de5d06"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createUser",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"shaziya\",\r\n  \"lastName\": \"siddiqui\",\r\n  \"emailId\": \"xyzgmail.com\",\r\n  \"password\": \"admin\",\r\n  \"mobileNo\": 5568798099,\r\n  \"countryId\": \"682f80e337a0757ab866c538\",\r\n  \"stateId\": \"682f80e337a0757ab866c540\",\r\n  \"cityId\": \"682f80e337a0757ab866c546\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}createUser",
+							"host": [
+								"{{baseUrl}}createUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUserById",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"shaziya\",\r\n            \"lastName\": \"khan\",\r\n            \"mobileNo\": 9939319722,\r\n            \"emailId\": \"jawed123@example.com\",\r\n  \"countryId\": \"682f80e337a0757ab866c53e\",\r\n  \"stateId\": \"682f80e437a0757ab866c56a\",\r\n  \"cityId\": \"682f80e537a0757ab866c570\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}user/updateUserById/683068aeeee6e8e121dfb0fd",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"updateUserById",
+								"683068aeeee6e8e121dfb0fd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user pfofile image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profileImage",
+									"type": "file",
+									"src": "/D:/Documents/CGI Pre Offer.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}user/uploadProfile/6831a6cf05220ef71f3c6623",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"uploadProfile",
+								"6831a6cf05220ef71f3c6623"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllUsers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODMxYjFjYmJkOTdmN2NjNDUzNTNjNzMiLCJlbWFpbElkIjoic2hheml5YWtoYW45MDUuY29tIiwiaWF0IjoxNzQ4MDg3Mjc2LCJleHAiOjE3NDgxNzM2NzZ9.87Q0xljtm30O-GJe8cu4JRWq6BzeWxrsW98ZQiQLVF0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}user/getAllUsers",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"getAllUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODNlYjE3NjIwZjVhYTczNTEwZmEzM2IiLCJlbWFpbElkIjoieHl6Z21haWwuY29tIiwiaWF0IjoxNzQ4OTQ0NzY0LCJleHAiOjE3NDkwMzExNjR9.GfDONutow19VuhzXkxwEKBePNOEDiFHvO6vyq-MDocI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODMxYjFjYmJkOTdmN2NjNDUzNTNjNzMiLCJlbWFpbElkIjoic2hheml5YWtoYW45MDUuY29tIiwiaWF0IjoxNzQ4MDg3Mjc2LCJleHAiOjE3NDgxNzM2NzZ9.87Q0xljtm30O-GJe8cu4JRWq6BzeWxrsW98ZQiQLVF0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}user/profile",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address_API",
+			"item": [
+				{
+					"name": "country",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}address/countries",
+							"host": [
+								"{{baseUrl}}address"
+							],
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "States",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}address/states/682f80e337a0757ab866c53e",
+							"host": [
+								"{{baseUrl}}address"
+							],
+							"path": [
+								"states",
+								"682f80e337a0757ab866c53e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cities",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}address/cities/682f80e337a0757ab866c540",
+							"host": [
+								"{{baseUrl}}address"
+							],
+							"path": [
+								"cities",
+								"682f80e337a0757ab866c540"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product_API",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "mobile",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "very good",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "20000",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "sumsung",
+									"type": "text"
+								},
+								{
+									"key": "brand",
+									"value": "sumsung",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "productImage",
+									"type": "file",
+									"src": "/D:/Documents/PanCard.jpg"
+								},
+								{
+									"key": "isActive",
+									"value": "true",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}product/createProduct",
+							"host": [
+								"{{baseUrl}}product"
+							],
+							"path": [
+								"createProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM1ZmVhZGUzNzg5N2U2MTg1OTA3YmIiLCJlbWFpbElkIjoic2hoaEBnbWFpbC5jb20iLCJpYXQiOjE3NDgzNzIxMDUsImV4cCI6MTc0ODM3NTcwNX0.6AngLM3IZJmkwCDQVTYSaL4YVyDQxEZEhRzGikPRmFc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}product/allProduct",
+							"host": [
+								"{{baseUrl}}product"
+							],
+							"path": [
+								"allProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \" laptop\",\r\n  \"description\": \"Ergonomic wireless mouse with USB receiver\",\r\n  \"price\": 99000,\r\n  \"category\": \"Electronics\",\r\n  \"brand\": \"LogiTech\",\r\n  \"stock\": 100545,\r\n  \"isActive\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}product/updateProductById/68320fe5b17fd7227590f11b",
+							"host": [
+								"{{baseUrl}}product"
+							],
+							"path": [
+								"updateProductById",
+								"68320fe5b17fd7227590f11b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProductById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \" laptop\",\r\n  \"description\": \"Ergonomic wireless mouse with USB receiver\",\r\n  \"price\": 99000,\r\n  \"category\": \"Electronics\",\r\n  \"brand\": \"LogiTech\",\r\n  \"stock\": 100545,\r\n  \"isActive\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}product/getProductById/68320fd7b17fd7227590f119",
+							"host": [
+								"{{baseUrl}}product"
+							],
+							"path": [
+								"getProductById",
+								"68320fd7b17fd7227590f119"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ProductById",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \" laptop\",\r\n  \"description\": \"Ergonomic wireless mouse with USB receiver\",\r\n  \"price\": 99000,\r\n  \"category\": \"Electronics\",\r\n  \"brand\": \"LogiTech\",\r\n  \"stock\": 100545,\r\n  \"isActive\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}product/deleteProductById/68320fd7b17fd7227590f119",
+							"host": [
+								"{{baseUrl}}product"
+							],
+							"path": [
+								"deleteProductById",
+								"68320fd7b17fd7227590f119"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LoginApi",
+			"item": [
+				{
+					"name": "LoginUser",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODMxYjFjYmJkOTdmN2NjNDUzNTNjNzMiLCJlbWFpbElkIjoic2hheml5YWtoYW45MDUuY29tIiwiaWF0IjoxNzQ4MDg3Mjc2LCJleHAiOjE3NDgxNzM2NzZ9.87Q0xljtm30O-GJe8cu4JRWq6BzeWxrsW98ZQiQLVF0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n  \"emailId\": \"xyzgmail.com\",\r\n  \"password\": \"admin\"\r\n\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}login",
+							"host": [
+								"{{baseUrl}}login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notice Api",
+			"item": [
+				{
+					"name": "Create Notice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"urgent metting\",\r\n  \"message\": \"project details \",\r\n  \"type\": \"urgent\",\r\n  \"createdBy\": \" Manager\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}notice/createNotice",
+							"host": [
+								"{{baseUrl}}notice"
+							],
+							"path": [
+								"createNotice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All notice details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"urgent metting\",\r\n  \"message\": \"project details \",\r\n  \"type\": \"urgent\",\r\n  \"createdBy\": \" Manager\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}notice/allNotice",
+							"host": [
+								"{{baseUrl}}notice"
+							],
+							"path": [
+								"allNotice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single Notice By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"urgent metting\",\r\n  \"message\": \"project details \",\r\n  \"type\": \"urgent\",\r\n  \"createdBy\": \" Manager\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}notice/singleNotice/683f1a6878073d65c484070b",
+							"host": [
+								"{{baseUrl}}notice"
+							],
+							"path": [
+								"singleNotice",
+								"683f1a6878073d65c484070b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteNoticeById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"urgent metting\",\r\n  \"message\": \"project details \",\r\n  \"type\": \"urgent\",\r\n  \"createdBy\": \" Manager\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}notice/deleteNoticeById/683f1a6878073d65c484070b",
+							"host": [
+								"{{baseUrl}}notice"
+							],
+							"path": [
+								"deleteNoticeById",
+								"683f1a6878073d65c484070b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateNoticeById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"urgent metting\",\r\n  \"message\": \"project details metting\",\r\n  \"type\": \"urgent\",\r\n  \"createdBy\": \" Manager\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}notice/updateNoticeById/683f1a7b78073d65c484070d",
+							"host": [
+								"{{baseUrl}}notice"
+							],
+							"path": [
+								"updateNoticeById",
+								"683f1a7b78073d65c484070d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

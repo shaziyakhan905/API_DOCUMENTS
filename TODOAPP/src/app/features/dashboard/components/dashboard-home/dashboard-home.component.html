@@ -1,0 +1,33 @@
+<div class="container my-4">
+    <!-- Count Cards -->
+    <div class="row g-4">
+        <div class="col-md-3" *ngFor="let card of cards">
+            <div class="card text-center">
+                <div class="card-body">
+                    <div class="card-icon mb-2">{{ card.icon }}</div>
+                    <h5 class="card-title">{{ card.title }}</h5>
+                    <p class="card-text fs-4">{{ card.count }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div style="display: block;">
+                <canvas baseChart [datasets]="chart1Data" [labels]="chart1Labels" [options]="chart1Options"
+                    [legend]="true" [type]="chart1Type">
+                </canvas>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div style="display: block;">
+                <canvas baseChart [datasets]="chart2Data" [labels]="chart2Labels" [options]="chart2Options"
+                    [legend]="true" [type]="chart2Type">
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>

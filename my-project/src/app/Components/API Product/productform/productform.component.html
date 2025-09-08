@@ -1,0 +1,77 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+                        <div>
+                            <label for="First name" class="form-label">Name</label>
+                            <input type="text" class="form-control" formControlName="name" placeholder="name">
+                            <ng-container *ngIf="isSubmitted && productData.get('name')?.errors">
+                                <div class="validation-error" *ngIf="productData.get('name')?.errors?.['required']">
+                                    This field is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div>
+                            <label for="description" class="form-label">Description</label>
+                            <input type="text" class="form-control" formControlName="description"
+                                placeholder="description">
+                            <ng-container *ngIf="isSubmitted && productData.get('description')?.errors">
+                                <div class="validation-error"
+                                    *ngIf="productData.get('description')?.errors?.['required']">
+                                    This field is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div>
+                            <label for="price" class="form-label">price</label>
+                            <input type="number" class="form-control" formControlName="price" placeholder="price">
+                            <ng-container *ngIf="isSubmitted && productData.get('price')?.errors">
+                                <div class="validation-error" *ngIf="productData.get('price')?.errors?.['required']">
+                                    This field is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div>
+                            <label for="category" class="form-label">Category</label>
+                            <input type="text" class="form-control" formControlName="category" placeholder="category">
+                            <ng-container *ngIf="isSubmitted && productData.get('category')?.errors">
+                                <div class="validation-error" *ngIf="productData.get('category')?.errors?.['required']">
+                                    This field is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div>
+                            <label for="brand" class="form-label">Brand</label>
+                            <input type="text" class="form-control" formControlName="brand" placeholder="brand">
+                            <ng-container *ngIf="isSubmitted && productData.get('brand')?.errors">
+                                <div class="validation-error" *ngIf="productData.get('brand')?.errors?.['required']">
+                                    This field is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div>
+                            <label for="stock" class="form-label">Stock</label>
+                            <input type="text" class="form-control" formControlName="stock" placeholder="stock">
+                            <ng-container *ngIf="isSubmitted && productData.get('stock')?.errors">
+                                <div class="validation-error" *ngIf="productData.get('stock')?.errors?.['required']">
+                                    This field is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div>
+                            <label for="status" class="form-label">Stutus</label>
+                            <select class="form-select" formControlName="status">
+                                <option selected value="">Select Status</option> 
+                                <option value="true">Active</option>
+                                <option value="false">Inactive</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<app-loader></app-loader>
+<div class="d-flex flex-column vh-100">
+    <!-- Top Header -->
+    <app-top-header (toggleSidebar)="toggleSidebar()"></app-top-header>
+
+    <!-- Main Content Area -->
+    <div class="d-flex flex-grow-1">
+        <!-- Sidebar -->
+        <div [ngClass]="{
+        'd-none': isSidebarCollapsed,
+        'd-block': !isSidebarCollapsed
+      }" class="bg-black text-white p-3" style="width: 250px;">
+            <app-sidebar (collapseSidebar)="toggleSidebar()"></app-sidebar>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-grow-1">
+             <app-breadcrumbs></app-breadcrumbs>
+             <div class="p-1">
+                 <router-outlet></router-outlet>
+             </div>
+        </div>
+    </div>
+</div>

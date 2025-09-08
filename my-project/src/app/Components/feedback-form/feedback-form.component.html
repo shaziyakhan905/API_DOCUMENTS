@@ -1,0 +1,109 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>{{formTitle}}</h4>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="feedbackForm" (ngSubmit)="onsubmit()">
+                        <div class="mb-3">
+                            <label for="exampleInputName" class="form-label">Name</label>
+                            <!-- {{feedbackDataForm.get('name') | json}} -->
+                            <input type="text" class="form-control" 
+                            formControlName="name" 
+                            aria-describedby="nameHelp">
+                            <ng-container *ngIf="isSubmitted && feedbackDataForm.get('name')?.errors">
+                                <div class="validation-error"
+                                 *ngIf="feedbackDataForm.get('name')?.errors?.['required']">
+                                    This is mandatory
+                                </div>
+                            </ng-container>
+                           
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" 
+                            class="form-label">Email address</label>
+                            <input type="email" class="form-control" formControlName="emailAddress"
+                                aria-describedby="emailHelp">
+
+                                 <ng-container *ngIf="isSubmitted && feedbackDataForm.get('emailAddress')?.errors">
+                                <div class="validation-error" 
+                                *ngIf="feedbackDataForm.get('emailAddress')?.errors?.['required']">
+                                    This is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputNumber" class="form-label">Mobile Number</label>
+                            <input type="number" class="form-control" formControlName="mobileNumber"
+                                aria-describedby="numberHelp">
+
+                                 <ng-container *ngIf="isSubmitted && feedbackDataForm.get('mobileNumber')?.errors">
+                                <div class="validation-error" 
+                                *ngIf="feedbackDataForm.get('mobileNumber')?.errors?.['required']">
+                                    This is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div>
+                            <label>Country</label>
+                            <select class="form-select" formControlName="country" (change)="onCountrySelect($event)">
+                                <option value="">--Select Country--</option>
+                                <option [value]="country.countryId" *ngFor="let country of countriesList ">
+                                    {{country.name}}</option>
+                            </select>
+                            <ng-container *ngIf="isSubmitted && feedbackDataForm.get('country')?.errors">
+                                <div class="validation-error" 
+                                *ngIf="feedbackDataForm.get('country')?.errors?.['required']">
+                                    This is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div>
+                            <label>State </label>
+                            <select class="form-select" formControlName="state" (change)="onStateSelect($event)">
+                                <option value="">--State Name--</option>
+                                <option [value]="state.id" *ngFor="let state of filterstateList">{{state.name}}</option>
+                            </select>
+                            <ng-container *ngIf="isSubmitted && feedbackDataForm.get('state')?.errors">
+                                <div class="validation-error" 
+                                *ngIf="feedbackDataForm.get('state')?.errors?.['required']">
+                                    This is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div>
+                            <label>City </label>
+                            <select class="form-select" formControlName="city" (change)="onCitySelect($event)">
+                                <option value="">--City Name--</option>
+                                <option [value]="city.id" *ngFor="let city of filterCityList">{{city.name}}</option>
+                            </select>
+                            <ng-container *ngIf="isSubmitted && feedbackDataForm.get('city')?.errors">
+                                <div class="validation-error" 
+                                *ngIf="feedbackDataForm.get('city')?.errors?.['required']">
+                                    This is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div>
+                            <label>Area </label>
+                            <select class="form-select" formControlName="area">
+                                <option value="">--Area Name--</option>
+                                <option [value]="area.id" *ngFor="let area of filterAreaList">{{area.name}}</option>
+                            </select>
+                              <ng-container *ngIf="isSubmitted && feedbackDataForm.get('area')?.errors">
+                                <div class="validation-error" 
+                                *ngIf="feedbackDataForm.get('area')?.errors?.['required']">
+                                    This is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <!-- *ngIf="queryParams.action =='add'"// Nor workin on button -->
+                        <button type="submit" class="btn btn-primary" >Submit</button>
+                        <button type="submit" class="btn btn-primary"
+                            *ngIf="queryParams.action =='edit'">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>

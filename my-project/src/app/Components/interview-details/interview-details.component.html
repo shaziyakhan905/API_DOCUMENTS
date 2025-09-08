@@ -1,0 +1,73 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <button type="button" class="btn btn-sm btn-primary" [routerLink]="'/poc/create-interview'">Create Interview</button>
+  <h2>Interview Schedule</h2>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Interview Title</th>
+          <th>Job Title</th>
+          <th>Status</th>
+          <th>Candidate Name</th>
+          <th>Location</th>
+          <th>Mobile No</th>
+          <th>Interviewer Name</th>
+          <th>Email</th>
+          <th>Interview Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of interviewData;let index = index">
+          <td>{{item.interviewTitle}}</td>
+        <td>{{item.jobTitle }}</td>
+        <td>
+          <button 
+            type="button" 
+            class="btn btn-sm"
+            [ngClass]="{
+              'btn-success':item.status == 'success',
+              'btn-danger':item.status == 'pending',
+              'btn-primary':item.status == 'in-progress',
+            }"
+            >
+            {{item.status }}
+          </button>
+        </td>
+        <td>{{item.candidateName }}</td>
+        <td>{{item.location}}</td>
+        <td>{{item.mobileNumber}}</td>
+        <td>{{item.interviewerName}}</td>
+        <td>{{item.emailId}}</td>
+        <td>{{item.interviewDateTime }}</td>
+        <td>
+          <button type="button" class="btn btn-sm btn-danger" (click)="deleteInterviewDataFromLS(index)">Delete</button>
+          <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#viewModal" (click)="viewInterview(item)">View</button>
+        </td>
+      </tr>  
+    </tbody>
+  </table>
+  </div>
+  </div>
+</div>
+
+<!-- Modal start -->
+<div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Interview Details</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{interviewDetails | json}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal start end-->

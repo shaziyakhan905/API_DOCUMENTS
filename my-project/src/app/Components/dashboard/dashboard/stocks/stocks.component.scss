@@ -1,0 +1,10 @@
+.card {
+    margin: 5px 0px;
+
+    .card-body {
+        padding: 0px;
+        min-height: 150px;
+        max-height: 250px;
+        overflow: auto;
+    }
+}

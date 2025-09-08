@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="newsForm" (ngSubmit)="onSubmit()">
+                        <div>
+                            <label for="news-category" class="form-label">News Category</label>
+                            <select class="form-select" formControlName="category">
+                                <option selected value="">Select News Category</option>
+                                <option [value]="item?._id" *ngFor="let item of newsCategory">{{item?.name}}</option>
+                            </select>
+                            <ng-container *ngIf="isSubmitted && newsData.get('category')?.errors">
+                                <div class="validation-error" *ngIf="newsData.get('category')?.errors?.['required']">
+                                    This field is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div>
+                            <label for="title" class="form-label"> News Title</label>
+                            <input type="text" class="form-control" formControlName="title" placeholder="Title">
+                            <ng-container *ngIf="isSubmitted && newsData.get('title')?.errors">
+                                <div class="validation-error" *ngIf="newsData.get('title')?.errors?.['required']">
+                                    This field is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div>
+                            <label for="author" class="form-label">News Auther</label>
+                            <input type="text" class="form-control" formControlName="author" placeholder="author">
+                            <ng-container *ngIf="isSubmitted && newsData.get('author')?.errors">
+                                <div class="validation-error" *ngIf="newsData.get('author')?.errors?.['required']">
+                                    This field is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div>
+                            <label for="newsDescription" class="form-label">Description</label>
+                            <div [froalaEditor] [(froalaModel)]="editorContent"></div>
+                        </div>
+                        <div>
+                            <label for="newsImage" class="form-label">Image</label>
+                            <div>
+                                <img [src]="imageUrl" style="width: 100px; height: 100px;">
+                                </div>
+                            <input type="file" #fileInput (change)="onImageChange($event)">
+                        </div>
+                        <div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

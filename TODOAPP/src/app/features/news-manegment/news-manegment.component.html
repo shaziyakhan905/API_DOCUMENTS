@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <button type="button" class="btn btn-sm btn-primary" (click)="navigateToCreateNews()">Create</button>
+        </div>
+        <div class="col-md-6">
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-sm btn-success">Download Excel</button>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Category</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        *ngFor="let item of newsList | paginate: { itemsPerPage: limit, currentPage: page }; let index = index">
+                        <td>{{item?.category?.name}}</td>
+                        <td>{{item.title}}</td>
+                        <td>{{item.author}}</td>
+                        <td>
+                            <div [innerHTML]="item.description | truncate:25"></div>
+                        </td>
+                        <!-- <td> -->
+                        <!-- <button type="button" class="btn btn-sm" 
+                            [ngClass]="{
+                                'btn-success':item.isActive == true,
+                                'btn-danger':item.isActive == false
+                              }">
+                                {{ item.isActive ? "Active":"Inactive"}}
+                            </button> -->
+                        <!-- </td> -->
+                        <td>
+                            <div class="action-btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-sm btn-success" (click)="navigateToViewNews(item)">
+                                    <app-icon [name]="'eye'"></app-icon>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-warning" (click)="updateNews(item)">
+                                    <app-icon [name]="'pencil'"></app-icon></button>
+                                <button type="button" class="btn btn-sm btn-danger" (click)="onDeleteNews(item)">
+                                    <app-icon [name]="'trash'"></app-icon>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+    </div>
+</div>

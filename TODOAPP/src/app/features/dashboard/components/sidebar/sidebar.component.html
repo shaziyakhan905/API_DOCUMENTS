@@ -1,0 +1,23 @@
+<div class="d-flex flex-column h-100">
+    <div class="flex-grow-1">
+        <h5 class="text-white">
+            <app-icon [name]="'menu-down'"></app-icon>
+            {{userProfile?.firstName}} {{userProfile?.lastName}} 
+        </h5>
+        <ul class="nav flex-column">
+            <ng-container *ngFor="let menu of componentMenu;">
+                <li class="nav-item">
+                    <a class="nav-link text-white" [routerLink]="menu.path">
+                        <app-icon [name]="menu.icon"></app-icon>
+                        {{menu.title}}</a>
+                </li>
+            </ng-container>
+        </ul>
+    </div>
+
+    <div class="mt-auto text-center">
+        <button class="btn btn-outline-light btn-sm w-100" (click)="onCollapseSidebar()">
+            Collapse Sidebar
+        </button>
+    </div>
+</div>

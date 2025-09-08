@@ -1,0 +1,46 @@
+<app-loader></app-loader>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" formControlName="emailId"
+                                placeholder="name@gmail.com">
+                            <ng-container *ngIf="isSubmitted && getLoginValue.get('emailId')?.errors">
+                                <div class="validation-error"
+                                    *ngIf="getLoginValue.get('emailId')?.errors?.['required']">
+                                    This field is mandatory
+                                </div>
+                                <div class="validation-error"
+                                    *ngIf="getLoginValue.get('emailId')?.errors?.['email']">
+                                    Enter valid email id
+                                </div>
+                                <div class="validation-error"
+                                    *ngIf="getLoginValue.get('emailId')?.errors?.['invalidEmail'] && !getLoginValue.get('emailId')?.errors?.['required'] && !getLoginValue.get('emailId')?.errors?.['email']">
+                                    Email with gmail.com is allowed...
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Password</label>
+                            <input type="password" class="form-control" formControlName="password"
+                                placeholder="password">
+                            <ng-container *ngIf="isSubmitted && getLoginValue.get('password')?.errors">
+                                <div class="validation-error"
+                                    *ngIf="getLoginValue.get('password')?.errors?.['required']">
+                                    This field is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sign In</button>
+                        <button type="button" class="btn btn-link" (click)="navigateToSignUp()">Creat an
+                            Account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

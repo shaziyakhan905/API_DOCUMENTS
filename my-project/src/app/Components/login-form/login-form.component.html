@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="col-md-6">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <!-- {{loginFormData.get('emailAddress')?.errors | json}} -->
+                <input type="email" class="form-control" formControlName="emailAddress" placeholder="name@example.com">
+                <ng-container *ngIf="isSubmitted && loginFormData.get('emailAddress')?.errors">
+                    <div class="validation-error" *ngIf="loginFormData.get('emailAddress')?.errors?.['required']">
+                        This field is mandatory
+                    </div>
+                </ng-container>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" 
+                class="form-control" 
+                formControlName="password" 
+                placeholder="password">
+                  <ng-container *ngIf="isSubmitted && loginFormData.get('password')?.errors">
+                    <div class="validation-error" *ngIf="loginFormData.get('password')?.errors?.['required']">
+                        This field is mandatory
+                    </div>
+                </ng-container>
+            </div>
+
+            <div class="mb-3">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <button class="btn btn-success"  type="submit" >Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

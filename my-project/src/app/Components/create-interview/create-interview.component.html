@@ -1,0 +1,107 @@
+<!-- {{isSubmitted}}
+{{f.get('interviewTitle')?.errors | json}} -->
+<form [formGroup]="interviewForm" (ngSubmit)="onFormsubmit()">
+    <div class="mb-3">
+        <label for="" class="form-label">Interview Title<span class="mandatory">*</span></label>
+        <input type="text" formControlName="interviewTitle" class="form-control" placeholder="">
+        <ng-container *ngIf="isSubmitted && f.get('interviewTitle')?.errors">
+          <div *ngIf="f.get('interviewTitle')?.errors?.['required']" class="error">
+             {{errorMessage.required}}
+          </div>
+          <div *ngIf="f.get('interviewTitle')?.errors?.['minlength']" class="error">
+             {{errorMessage.minlength}}
+          </div>
+        </ng-container>
+      </div>
+      
+    <div class="mb-3">
+      <label for="" class="form-label">Job Title<span class="mandatory">*</span></label>
+      <input type="text"  formControlName="jobTitle" class="form-control" placeholder="">
+      <ng-container *ngIf="isSubmitted && f.get('jobTitle')?.errors">
+        <div *ngIf="f.get('jobTitle')?.errors?.['required']" class="error">
+           {{errorMessage.required}}
+        </div>
+        </ng-container>
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Candidate Name</label>
+        <input type="text" formControlName="candidateName" class="form-control" placeholder="">
+        <ng-container *ngIf="isSubmitted && f.get('candidateName')?.errors">
+          <div *ngIf="f.get('candidateName')?.errors?.['required']" class="error">
+             {{errorMessage.required}}
+          </div>
+          </ng-container>
+      </div>
+
+      <div class="mb-3">
+        <label for="" class="form-label">Location</label>
+      <select class="form-select"  formControlName="location"aria-label="Default select example">
+        <option selected value="">selected</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Kolkata">Kolkata</option>
+      </select>
+      <ng-container *ngIf="isSubmitted && f.get('location')?.errors">
+        <div *ngIf="f.get('location')?.errors?.['required']" class="error">
+           {{errorMessage.required}}
+        </div>
+        </ng-container>
+    </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Status</label>
+      <select class="form-select"  formControlName="status"aria-label="Default select example">
+        <option value="" selected>selected</option>
+        <option value="success">Success</option>
+        <option value="pending">Pending</option>
+        <option value="in-progress">In-Progress</option>
+      </select>
+      <ng-container *ngIf="isSubmitted && f.get('location')?.errors">
+        <div *ngIf="f.get('location')?.errors?.['required']" class="error">
+           {{errorMessage.required}}
+        </div>
+        </ng-container>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Mobile Number</label>
+        <input type="number"  formControlName="mobileNumber" class="form-control" placeholder="">
+        <ng-container *ngIf="isSubmitted && f.get('mobileNumber')?.errors">
+          <div *ngIf="f.get('mobileNumber')?.errors?.['required']" class="error">
+            {{errorMessage.required}}
+         </div>
+        </ng-container>
+        
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Email ID</label>
+        <input type="text"  formControlName="emailId" class="form-control" placeholder="">
+        <ng-container *ngIf="isSubmitted && f.get('emailId')?.errors">
+          <div *ngIf="f.get('emailId')?.errors?.['required']" class="error">
+             {{errorMessage.required}}
+          </div>
+          <div *ngIf="f.get('emailId')?.errors?.['email']" class="error">
+             {{errorMessage.emailValidationMessage}}
+          </div>
+          </ng-container>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Interviewer Name</label>
+        <input type="text" formControlName="interviewerName" class="form-control" placeholder="">
+        <ng-container *ngIf="isSubmitted && f.get('interviewerName')?.errors">
+          <div *ngIf="f.get('interviewerName')?.errors?.['required']" class="error">
+             {{errorMessage.required}}
+          </div>
+          </ng-container>
+    </div>
+    <div class="mb-3">
+        <label for="dateTime" class="form-label">Interview Date & Time</label>
+        <input type="datetime-local" formControlName="interviewDateTime" class="form-control" placeholder="">
+        <ng-container *ngIf="isSubmitted && f.get('interviewDateTime')?.errors">
+          <div *ngIf="f.get('interviewDateTime')?.errors?.['required']" class="error">
+             {{errorMessage.required}}
+          </div>
+          </ng-container>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>

@@ -1,0 +1,120 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="cardtitle-">User Form</h5>
+                    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" autocomplete="off">
+                        <div class="row g-3">
+                            <div class="col">
+                                <!-- {{signUpData.get('firstName')?.errors | json}}     -->
+                                <label for="First name" class="form-label">First Name</label>
+                                <input type="text" class="form-control" formControlName="firstName"
+                                    placeholder="First name">
+                                <ng-container *ngIf="isSubmitted && signUpData.get('firstName')?.errors">
+                                    <div class="validation-error"
+                                        *ngIf="signUpData.get('firstName')?.errors?.['required']">
+                                        This field is mandatory
+                                    </div>
+                                </ng-container>
+                            </div>
+                            <div class="col">
+                                <label for="First name" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" formControlName="lastName"
+                                    placeholder="Last name">
+                                <ng-container *ngIf="isSubmitted && signUpData.get('lastName')?.errors">
+                                    <div class="validation-error"
+                                        *ngIf="signUpData.get('lastName')?.errors?.['required']">
+                                        This field is mandatory
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" formControlName="emailId" placeholder="EmailId">
+                            <ng-container *ngIf="isSubmitted && signUpData.get('emailId')?.errors">
+                                <div class="validation-error" *ngIf="signUpData.get('emailId')?.errors?.['required']">
+                                    This field is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="col">
+                            <label for="email" class="form-label">Password</label>
+                            <input type="email" class="form-control" formControlName="password" placeholder="password" display="non">
+                            <ng-container *ngIf="isSubmitted && signUpData.get('password')?.errors">
+                                <div class="validation-error" *ngIf="signUpData.get('password')?.errors?.['required']">
+                                    This field is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="row g-12">
+                            <div class="col">
+                                <label for="number" class="form-label">Mobile Number</label>
+                                <input type="number" class="form-control" formControlName="mobileNumber"
+                                    placeholder="mobile number">
+                                <ng-container *ngIf="isSubmitted && signUpData.get('mobileNumber')?.errors">
+                                    <div class="validation-error"
+                                        *ngIf="signUpData.get('mobileNumber')?.errors?.['required']">
+                                        This field is mandatory
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="row g-12">
+                            <div class="col-md-6">
+                                <app-select-option 
+                                    [options]="countryList" 
+                                    [lebelText]="'Country'"
+                                    [placeholderText]="'Search country..'" (valueChanges)="onCountryChange($event)">
+                                </app-select-option>
+                                <!-- <label for="inputCountry" class="form-label">Country</label>
+                                <select class="form-select" formControlName="country"
+                                    (change)="onCountryChange($event)">
+                                    <option value="" selected>--Select--</option>
+                                    <option *ngFor="let country of countryList" [value]="country._id">{{country.name}}
+                                    </option>
+                                </select> -->
+                                <!-- <ng-container *ngIf="isSubmitted && signUpData.get('country')?.errors">
+                                    <div class="validation-error"
+                                        *ngIf="signUpData.get('country')?.errors?.['required']">
+                                        This field is mandatory
+                                    </div> -->
+                                <!-- </ng-container> -->
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputState" class="form-label">State</label>
+                                <select class="form-select" formControlName="state" (change)="onChangeState($event)">
+                                    <option value="" selected>--Select--</option>
+                                    <option *ngFor="let state of stateList" [value]="state._id">{{state.name}}</option>
+                                </select>
+                                <ng-container *ngIf="isSubmitted && signUpData.get('state')?.errors">
+                                    <div class="validation-error" *ngIf="signUpData.get('state')?.errors?.['required']">
+                                        This field is mandatory
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="row g-12">
+                            <div class="col-md-6">
+                                <label for="inputCity" class="form-label">City</label>
+                                <select class="form-select" formControlName="city">
+                                    <option selected value="">--Select--</option>
+                                    <option *ngFor="let city of cityList" [value]="city._id">{{city.name}}</option>
+                                </select>
+                                <ng-container *ngIf="isSubmitted && signUpData.get('city')?.errors">
+                                    <div class="validation-error" *ngIf="signUpData.get('city')?.errors?.['required']">
+                                        This field is mandatory
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            {{actionType == 'add' ? FromAction.Submit:FromAction.Update}}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

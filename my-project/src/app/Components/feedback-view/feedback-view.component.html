@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <h5 class="card-header">Feedback Details</h5>
+            <div class="card-body">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <th>Name</th>
+                    <td>{{feedbackDetails.name}}</td>
+                  </tr>
+                  <tr>
+                    <th>Email Id</th>
+                    <td>{{feedbackDetails.emailAddress}}</td>
+                  </tr>
+                  <tr>
+                    <th>Mobile No</th>
+                    <td>{{feedbackDetails.mobileNumber}}</td>
+                  </tr>
+                  <tr>
+                    <th>Country</th>
+                    <td>{{feedbackDetails.countryName}}</td>
+                  </tr>
+                  <tr>
+                    <th>State</th>
+                    <td>{{feedbackDetails.stateName}}</td>
+                  </tr>
+                  <tr>
+                    <th>City</th>
+                    <td>{{feedbackDetails.cityName}}</td>
+                  </tr>
+                  <tr>
+                    <th>Area</th>
+                    <td>{{feedbackDetails.areaName}}</td>
+                  </tr>
+                  <tr>
+                    <th>Created At</th>
+                    <td>{{feedbackDetails.createdAt | date:'medium'}}</td>
+                  </tr>
+                  <tr>
+                    <th>Last Updated At</th>
+                    <td>{{feedbackDetails.updatedAt | date:'medium'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

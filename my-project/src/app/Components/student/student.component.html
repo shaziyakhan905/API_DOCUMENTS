@@ -1,0 +1,59 @@
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Enter student id.." [(ngModel)]="studentId">
+  <button class="btn btn-primary" type="button" (click)="getStudentById()">Get Result</button>
+</div>
+
+<table class="vertical-table"style="border: 1px solid black; border-collapse: collapse;" >
+  <tbody>
+    <tr style="border: 1px solid black; padding: 8px;">
+      <th>ID</th>
+      <td style ="border: 1px solid black; padding: 8px;">{{studentResult.data.id}}</td>
+    </tr>
+    <tr style="border: 1px solid black; padding: 8px;">
+      <th>Name</th>
+      <td style ="border: 1px solid black; padding: 8px;">{{studentResult.data.name}}</td>
+    </tr>
+    <tr style="border: 1px solid black; padding: 8px;">
+      <th>Class</th>
+      <td style ="border: 1px solid black; padding: 8px;">{{studentResult.data.class}}</td>
+    </tr>
+    <tr style="border: 1px solid black; padding: 8px;">
+      <th>Subjects</th>
+      <td style ="border: 1px solid black; padding: 8px;">
+        <table class="inner-table">
+          <thead>
+            <tr style="border: 1px solid black; padding: 8px;">
+              <th>Subject</th>
+              <th>Marks</th>
+              <th>Total Marks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of studentResult.data.subjects" >
+              <td>{{item.subjectName}}</td>
+              <td>{{item.marks}}</td>
+              <td>{{item.totalMarks}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- <tr *ngFor="let item of studentResult.data.subjects  ">
+          <td style ="border: 1px solid black; padding: 8px;">{{item.subjectName}}</td>
+        </tr> -->
+      </td>
+    </tr>
+    <tr style="border: 1px solid black; padding: 8px;">
+      <th>Total Marks</th>
+      <td style ="border: 1px solid black; padding: 8px;">{{studentResult.totalMarks}}</td>
+    </tr>
+    <tr style="border: 1px solid black; padding: 8px;">
+      <th>Average Marks</th>
+      <td style ="border: 1px solid black; padding: 8px;">{{studentResult.averageMarks}}</td>
+    </tr>
+    <tr style="border: 1px solid black; padding: 8px;">
+      <th>Status</th>
+      <td style ="border: 1px solid black; padding: 8px;">{{studentResult.status}}</td>
+    </tr>
+  </tbody>
+</table>
+
+

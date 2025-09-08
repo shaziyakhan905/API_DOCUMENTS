@@ -1,0 +1,55 @@
+<div class="container text-center">
+    <div class="row">
+        <div class="col-md-10">
+            <app-image-reader [path]="dummayImage"></app-image-reader>
+            <div class="row">
+                <div class="col-md-4" *ngFor="let item of headprofileList">
+                    <!-- First card -->
+                    <app-head-profiles [profile]="item"></app-head-profiles>
+                </div>
+            </div>
+        </div>
+        <div class=" col-md-2">
+            <div class="card">
+                <app-service [services]="serviceList"></app-service>
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Service</h5>
+                    <p class="card-text"> content</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-md-4">
+            <div class="card">
+                <app-deparment [departments]="departmentList"></app-deparment>
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Department</h5>
+                    <p class="card-text"> content</p>
+                </div>
+            </div>
+        </div>
+        <div class=" col-md-4">
+            <div class="card">
+                <app-role [roles]="roleType"></app-role>
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Role &Positions</h5>
+                    <p class="card-text"> content</p>
+                </div>
+            </div>
+        </div>
+        <div class=" col-md-4">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <app-adds [adds]="addList"></app-adds>
+                    <h5 class="card-title">Adds</h5>
+                    <p class="card-text"> content</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

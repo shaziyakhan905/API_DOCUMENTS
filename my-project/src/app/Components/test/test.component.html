@@ -1,0 +1,14 @@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="userId">User ID</th>
+            <th class="title">Title></th>
+        </tr>
+    </thead>
+    <tr *ngFor="let item of finalData;let i = index">
+        <td>{{item.userId}}</td>
+        <td>{{item.title}}</td>
+        
+    </tr>
+</table>

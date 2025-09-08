@@ -1,0 +1,98 @@
+<div class="container-fluid">
+    <div claas="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Create New Employee</h4>
+                </div>
+                <div class="card-body">
+                    <!-- ? used here to undefined and null check if property does' not exist it will not check further -->
+                    {{empForm.get('employeeName')?.errors | json}}
+                    <form [formGroup]="employeeForm" (ngSubmit)="onFormsubmit()">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Employee Name</label>
+                            <input type="text" formControlName="employeeName" class="form-control" placeholder="">
+                            <ng-container *ngIf="isSubmitted && empForm.get('employeeName')?.errors">
+                                <div class="validation-error" *ngIf="empForm.get('employeeName')?.errors?.['required']">
+                                    This is mandatory.
+                                </div>
+                                <div class="validation-error"
+                                    *ngIf="empForm.get('employeeName')?.errors?.['minlength']">
+                                    Please enter valid lenth
+                                </div>
+                                <div class="validation-error" 
+                                *ngIf="empForm.get('employeeName')?.errors?.['maxlength']">
+                                    Please do not exceed maximum lenth
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Location</label>
+                            {{empForm.get('location')?.errors | json}}
+                          
+                            <select class="form-select" formControlName="location" aria-label="Default select example">
+                                <option value="" selected>selected</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Kolkata">Kolkata</option>
+                            </select>
+                            <ng-container *ngIf="isSubmitted && empForm.get('location')?.errors">
+                                <div class="validation-error" *ngIf="empForm.get('location')?.errors?.['required']">
+                                    This is mandatory
+                                </div>
+                                <div class="validation-error" *ngIf="empForm.get('location')?.errors?.['minlength']" >
+                                    plz fill minimum length
+                                </div>
+                                <div class="validation-error" *ngIf="empForm.get('location')?.errors?.['maxlength']">
+                                    Please do not exceed the length
+                                 </div>                        
+                            </ng-container>
+                        </div>
+                        <div class="mb-3">
+                            <p>Reusable Component</p>
+                          <app-select-option 
+                            [options]="addressOptions" 
+                            [lebelText]="'Country'"
+                            [placeholderText]="'Search your location'"
+                            (valueChanges)="getLocation($event)"
+                            ></app-select-option>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Mobile Number</label>
+                            {{empForm.get('mobileNumber')?.errors | json}}
+                            <input type="text" formControlName="mobileNumber" class="form-control" placeholder="">
+                            <ng-container *ngIf="isSubmitted && empForm.get('mobileNumber')?.errors">
+                                <div class="validation-error" *ngIf="empForm.get('mobileNumber')?.errors?.['required']">
+                                    This is mandatory
+                                </div>
+                                <div class="validation-error" *ngIf="empForm.get('mobileNumber')?.errors?.['minlength']">
+                                    minlength
+                                </div>
+                                <div class="validation-error" *ngIf="empForm.get('mobileNumber')?.errors?.['maxlength']">
+                                    maxlength
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Email ID</label>
+                            <input type="text" formControlName="emailId" class="form-control" placeholder="">
+                            <ng-container *ngIf="isSubmitted && empForm.get('emailId')?.errors">
+                                <div class="validation-error" *ngIf="empForm.get('emailId')?.errors">
+                                    This field is mandatory
+                                </div>
+
+                            </ng-container>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dateTime" class="form-label">Date of Joining</label>
+                            <input type="datetime-local" formControlName="dateOfJoining" class="form-control"
+                                placeholder="">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

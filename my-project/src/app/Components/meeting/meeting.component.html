@@ -1,0 +1,25 @@
+<p>meeting works!</p>
+<h5>Meeting Details</h5>
+<button type="button" class="btn btn-primary" [routerLink]="'/create-meeting'">Creat Meeting</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Start Date Time</th>
+        <th>End Date Time</th>
+        <th>Agenda</th>
+        <th>Description</th>
+
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of getMeetingDetails">
+          <td>{{item.title}}</td>
+          <td>12</td>
+          <td>12</td>
+          <td>12</td>
+          <td>12</td>
+         
+    </tr>
+    </tbody>
+  </table>

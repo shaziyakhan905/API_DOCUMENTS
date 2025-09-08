@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <button type="button" class="btn btn-sm btn-primary" (click)="onClickToNavigate()">Create</button>
+        </div>
+        <div class="col-md-6">
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-sm btn-success">Download Excel</button>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Brand</th>
+                        <th scope="col">stock</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        *ngFor="let item of productList | paginate: { itemsPerPage: limit, currentPage: page }; let index = index">
+                        <td>{{item.name}}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item.category}}</td>
+                        <td>{{item.brand}}</td>
+                        <td>{{item.stock}}</td>
+                        <td>
+                            <button type="button" class="btn btn-sm" 
+                            [ngClass]="{
+                                'btn-success':item.isActive == true,
+                                'btn-danger':item.isActive == false
+                              }">
+                                {{ item.isActive ? "Active":"Inactive"}}
+                            </button>
+                        </td>
+                        <td>
+                            <div class="action-btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-sm btn-success" (click)="goToViewpage(item)">
+                                    <app-icon [name]="'eye'"></app-icon>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-warning" (click)="updateProduct(item)">
+                                    <app-icon [name]="'pencil'"></app-icon></button>
+                                <button type="button" class="btn btn-sm btn-danger" (click)="onDeleteProduct(item)">
+                                    <app-icon [name]="'trash'"></app-icon>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+    </div>
+</div>

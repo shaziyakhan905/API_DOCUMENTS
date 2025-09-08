@@ -1,0 +1,58 @@
+<div class="container-fluid">
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" [(ngModel)]="searchText" (keyup)="searchFeedbacks($event)" placeholder="Search...">
+            <button class="btn btn-outline-danger" type="button" (click)="clearSearch()">Clear</button>
+          </div>
+          {{searchText}}
+    </div>
+    <div class="col-md-9">
+        <button type="button" class="btn btn-sm btn-primary" 
+        [routerLink]="'/poc/create-feedback'"
+        [queryParams]="{ action: 'add'}">Create Feedback</button>
+    </div>
+</div>
+<!--create feedback row end-->
+<!--Show Table Data-->
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email address</th>
+                    <th>Mobile Number </th>
+                    <th>Country </th>
+                    <th>Created At </th>
+                    <th>Last Updated At </th>
+                    <th>Action </th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngIf="filteredFeedbacks.length > 0">
+                    <tr *ngFor="let feedback of filteredFeedbacks; let index =index" >
+                        <td>{{feedback.name}}</td>
+                        <td>{{feedback.emailAddress}}</td>
+                        <td>{{feedback.mobileNumber}}</td>
+                        <td>{{feedback.countryName}}</td>
+                        <td>{{feedback.createdAt | date:'medium'}}</td>
+                        <td>{{feedback.updatedAt | date:'medium'}}</td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-danger" (click)="deleteFeedback(index)">Delete</button>
+                            <button type="button" class="btn btn-sm btn-primary" (click)="navigateToCreateOrEditfeedback(index)">Edit</button>
+                            <button type="button" class="btn btn-sm btn-success" (click)="navigateToViewfeedback(index)">view</button>
+                        </td>
+                    </tr>
+                </ng-container>
+                <ng-container *ngIf="filteredFeedbacks.length == 0">
+                    <tr>
+                        <td class="not-found" colspan="5">No records found..</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

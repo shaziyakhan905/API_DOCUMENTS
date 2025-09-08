@@ -1,0 +1,42 @@
+<button type="button" class="btn btn-primary" (click)="onClickToNavigate()">Create</button>
+<!-- {{productList | json}} -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Brand</th>
+                        <th scope="col">stock</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of productList; let index = index">
+                        <td>{{item.name}}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item.category}}</td>
+                        <td>{{item.brand}}</td>
+                        <td>{{item.stock}}</td>
+                        <td>{{item.isActive}}</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-success" (click)="goToViewpage(item)">View</button>
+                                <button type="button" class="btn btn-warning" (click)="updateProduct(item)">Edit</button>
+                                <button type="button" class="btn btn-danger"
+                                    (click)="onDeleteProduct(item)">Delete</button>
+                            </div>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

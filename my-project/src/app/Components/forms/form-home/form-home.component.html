@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+             <ng-container *ngFor="let menu of formsMenu; let index=index;">
+                    <ng-container *ngIf="menu.active">
+                        <!-- <a [routerLink]="menu.path" class="list-group-item list-group-item-action">{{menu.title}}</a> -->
+                        <button 
+                            class="btn btn-sm btn-success navigation-btn"
+                            (click)="navigateToPage(menu)" 
+                            [ngClass]="{'active-menu':menuActiveId == menu.id}">
+                            {{menu.title}}
+                        </button>
+                    </ng-container>
+                </ng-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="selected-option" *ngIf="selectedOption.length > 0">
+    <button type="button" class="btn btn-sm btn-outline-secondary">
+        {{selectedOption[0]?.element?.text}}
+    </button>
+</div>
+<div class="autocomplete-container" #autoContainer>
+    <label>{{lebelText}}</label>
+    <input type="text" (focus)="showDropdown = true" [placeholder]="placeholderText" (input)="filterOptions($event)" />
+    <ul *ngIf="showDropdown" class="dropdown">
+        <li *ngIf="multiSelect">
+            <button type="button" class="btn btn-sm btn-primary">Select All</button>
+            <button type="button" class="btn btn-sm btn-secondary">Clear All</button>
+        </li>
+        <li *ngFor="let option of availableOptions" (click)="onOptionSelect(option)">
+            {{ option.element.text }}
+        </li>
+        <li *ngIf="availableOptions.length <= 0">
+            No data found..
+        </li>
+    </ul>
+
+</div>

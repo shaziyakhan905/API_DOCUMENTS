@@ -1,0 +1,37 @@
+<!-- {{productDetails | json}} -->
+<div class="container-fluid">
+    <div class="row">
+         <div class="col-md-12">
+            <button type="button" class="btn btn-sm btn-success">Download PDF</button>
+            <button type="button" class="btn btn-sm btn-danger">Print</button>
+        </div>
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Brand</th>
+                        <th scope="col">stock</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{productDetails.name}}</td>
+                        <td>{{productDetails.description}}</td>
+                        <td>{{productDetails.price}}</td>
+                        <td>{{productDetails.category}}</td>
+                        <td>{{productDetails.brand}}</td>
+                        <td>{{productDetails.stock}}</td>
+                        <td>{{productDetails.isActive}}</td>
+                        <td>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

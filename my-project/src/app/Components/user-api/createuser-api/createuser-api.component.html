@@ -1,0 +1,105 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form" [formGroup]="apiForm" (ngSubmit)="onSubmitted()">
+                <div class="row">
+                    <div class="col">
+                        <label for="input-text" class="form-label">First Name</label>
+                        <input type="text" class="form-control" placeholder="First name" formControlName="firstName">
+                        <ng-container *ngIf="isSubmitted && apiData.get('firstName')?.errors">
+                            <div class="validation-error" *ngIf="apiData.get('firstName')?.errors?.['required']">
+                                This field is mandatory
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="col">
+                        <label for="input-text" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Last name" formControlName="lastName">
+                        <ng-container *ngIf="isSubmitted && apiData.get('lastName')?.errors">
+                            <div class="validation-error" *ngIf="apiData.get('lastName')?.errors?.['required']">
+                                This field is mandatory
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="inputEmail4" class="form-label">Email Id</label>
+                        <input type="emailId" class="form-control" placeholder="emailId" formControlName="emailId">
+                        <ng-container *ngIf="isSubmitted && apiData.get('emailId')?.errors">
+                            <div class="validation-error" *ngIf="apiData.get('emailId')?.errors?.['required']">
+                                This field is mandatory
+                            </div>
+                        </ng-container>
+                    </div>
+                    <!-- <div class="col">
+                        <label for="inputPassword4" class="form-label">Password</label>
+                        <input type="password" class="form-control" placeholder="password" 
+                        formControlName="password">
+                        <ng-container *ngIf="isSubmitted && apiData.get('password')?.errors">
+                            <div class="validation-error" *ngIf="apiData.get('password')?.errors?.['required']">
+                                This field is mandatory
+                            </div>
+                        </ng-container>
+                    </div> -->
+                </div>
+                <div>
+                    <label for="inputPassword4" class="form-label">Mobile Number</label>
+                    <input type="number" class="form-control" placeholder="mobileNo" formControlName="mobileNo">
+                    <ng-container *ngIf="isSubmitted && apiData.get('mobileNo')?.errors">
+                        <div class="validation-error" *ngIf="apiData.get('mobileNo')?.errors?.['required']">
+                            This field is mandatory
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="input-text" class="form-label">Country</label>
+                        <ng-container *ngIf="isSubmitted && apiData.get('country')?.errors">
+                            <div class="validation-error" *ngIf="apiData.get('country')?.errors?.['required']">
+                                This field is mandatory
+                            </div>
+                        </ng-container>
+                        <select class="form-select" formControlName="country"
+                         (change)="onCountrySelect($event)">
+
+                            <option selected value="">--Select--</option>
+                            <option *ngFor="let country of countryList" [value]="country._id">{{country.name}}</option>
+
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="input-text" class="form-label">State</label>
+                        <ng-container *ngIf="isSubmitted && apiData.get('state')?.errors">
+                            <div class="validation-error" *ngIf="apiData.get('state')?.errors?.['required']">
+                                This field is mandatory
+                            </div>
+                        </ng-container>
+                        <select class="form-select" formControlName="state" (change)="onStateSelect($event)">
+                            <option selected value="">--Select--</option>
+                            <option *ngFor="let state of stateList" [value]="state._id">{{state.name}}</option>
+                        </select>
+
+                    </div>
+                    <div class="col">
+                        <label for="input-text" class="form-label">City</label>
+                        <ng-container *ngIf="isSubmitted && apiData.get('city')?.errors">
+                            <div class="validation-error" *ngIf="apiData.get('city')?.errors?.['required']">
+                                This field is mandatory
+                            </div>
+                        </ng-container>
+                        <select class="form-select" formControlName="city">
+                            <option selected value="">--Select--</option>
+                            <option *ngFor="let city of cityList" [value]="city._id">{{city.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        {{actionType == 'add' ? FromAction.Submit:FromAction.Update}}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

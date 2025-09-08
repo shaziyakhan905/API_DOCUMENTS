@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div claas="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Employees</h4>
+                </div>
+                <div class="card-body">
+                    <button type="button" class="btn btn-sm btn-primary" routerLink="/poc/create-employee">Create New Employee</button>
+                    <table class="table">
+                        <thead>
+                          <tr >
+                            <th scope="col">Employee Name</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">MobileNumber </th>
+                            <th scope="col">Email Id</th>
+                            <th scope="col">D.O.J</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of employeeData;let index = index">
+                            <td>{{item.employeeName}} {{index}}</td>
+                            <td>{{item.location}}</td>
+                            <td>{{item.mobileNumber}}</td>
+                            <td>{{item.emailId}}</td>
+                            <td>{{item.dateOfJoining}}</td>
+                            <td>
+                              <button type="button" class ="btn btn-sm btn-danger" (click)="deleteEmployeeDataFromLS(index)">Delete</button>
+                              <button type="button" class ="btn btn-sm btn-primary" (click)="navigateToEditEmployees(index)">Edit</button>
+                              <button type="buttton" class="btn btn-sm btn-success" (click)="navigateToViewemployees(index)">View</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div *ngIf="breadcrums$ | async as breadcrums">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <ng-container *ngFor="let item of breadcrums; let last = last">
+        <li class="breadcrumb-item" [class.active]="last" [attr.aria-current]="last ? 'page' : null">
+          <ng-container *ngIf="!last; else lastBreadcrumb">
+            <a href="#" (click)="navigate($event, item)">{{ item.name }}</a>
+          </ng-container>
+          <ng-template #lastBreadcrumb>
+            {{ item.name }}
+          </ng-template>
+        </li>
+      </ng-container>
+    </ol>
+  </nav>
+</div>

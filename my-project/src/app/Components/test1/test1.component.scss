@@ -1,0 +1,39 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    .outer{
+        display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: grey;
+            height: 371px;
+            width: 50%;
+            position: relative;
+    
+    }
+    .inner-box{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        background-color:lightblue;
+        height: 70px;
+        width: 50%;
+        position: absolute;
+        top:90px;
+        font-size: 25px;
+    }
+    .close-btn{
+        position: absolute;
+        top: 80px;
+        right: 317px;
+        font-size: 15px;
+        height: 26px;
+        background: red;
+        width: 25px;
+        text-align: center;
+        color: white; 
+        border-radius: 25px;    
+    }
+   

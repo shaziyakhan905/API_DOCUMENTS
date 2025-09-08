@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Status</th>
+        <th scope="col">Department</th>
+        <th scope="col">Registraion Date</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of departmentData">
+
+        <td>{{item.id}}</td>
+        <td>{{item.name | titlecase}}</td>
+        <!-- <td>{{item.name | titlecase | slice:0:3}}</td> -->
+         
+        <td>{{item.status}}</td>
+        <td>{{item.department | uppercase}}</td>
+        <td>{{item.registrationDate | date:'MMM d, y, h:mm:ss a'}}</td>
+        <td>  <button type="button" class="btn btn-primary ">Edit</button>
+            <button type="button" class="btn btn-danger">Delete</button></td>
+      </tr>
+    
+    </tbody>
+  </table>
+
+  <button type="button" class="btn btn-primary" (click)="navigateTo()">Navigate To Company</button>

@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="cardtitle-">Google</h4>
+                    <h5 class="card-line">Cread a Google Account</h5>
+                    <form [formGroup]="signupForm" (ngSubmit)="onSubmitted()">
+                        <div class="form-group">
+                            <label for="tex">First Name</label>
+                            <!-- {{signupFormData.get('firstName')?.errors| json}} -->
+                            <input type="tex" class="form-control" formControlName="firstName" placeholder="First Name">
+                            <ng-container *ngIf="isSubmitted && signupFormData.get('firstName')?.errors">
+                                <div class="validation-error"
+                                    *ngIf="signupFormData.get('firstName')?.errors?.['required']">
+                                    This field is mandatory
+                                </div>
+                                <div class="validation-error"
+                                    *ngIf="signupFormData.get('firstName')?.errors?.['minlength']">
+                                    Please fill the beyod minimum length
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="form-group">
+                            <label for="tex">Last Name</label>
+                            <input type="tex" class="form-control" placeholder="Last Name">
+                        </div>
+                        <button type="txt" class="btn btn-primary">Next</button>
+                    </form>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="cardtitle-">Google</h4>
+                    <h5 class="card-line">Basic Information</h5>
+                    <P>Enter your birth and gender</P>
+                    <form [formGroup]="signupForm" (ngSubmit)="onSubmitted()">
+                        <div class="form-group">
+                            <label for="tex">Month</label>
+                            <select class="form-control" formControlName="SelectMonth">
+                                <option value=''>--Select Month--</option>
+                                <option selected value='1'>January</option>
+                                <option value='2'>February</option>
+                                <option value='3'>March</option>
+                                <option value='4'>April</option>
+                                <option value='5'>May</option>
+                                <option value='6'>June</option>
+                                <option value='7'>July</option>
+                                <option value='8'>August</option>
+                                <option value='9'>September</option>
+                                <option value='10'>October</option>
+                                <option value='11'>November</option>
+                                <option value='12'>December</option>
+                                </select> 
+
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option value="" selected>---Selected Gender---</option>
+                                <option value="Male">Male</option>
+                                <option value="Femal">Female</option>
+                            </select>
+                        </div>
+                        <button type="txt" class="btn btn-primary">Next</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

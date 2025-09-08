@@ -1,0 +1,29 @@
+<app-loader></app-loader>
+<div class="container-fluid">
+    <div class="row">
+         <div class="col-md-12 d-flex justify-content-end">
+            <div [routerLink]=""></div>
+            <button type="button" class="btn btn-sm" (click)="logout()">Logout</button>
+         </div>
+        <div class="col-md-3">
+            <div class="list-group">
+            <ng-container *ngFor="let menu of formsMenu; let index=index;">
+                <ng-container *ngIf="menu.active">
+                    <a [routerLink]="menu.path" class="list-group-item list-group-item-action">{{menu.title}}</a>
+                    <!-- <a 
+                        class="list-group-item"
+                        (click)="navigateToPage(menu)" 
+                        [ngClass]="{'active-menu':menuActiveId == menu.id}">
+                        {{menu.title}}
+                    </a> -->
+                </ng-container>
+            </ng-container>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

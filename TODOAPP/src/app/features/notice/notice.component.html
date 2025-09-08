@@ -1,0 +1,67 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+             <!-- <button mat-raised-button color="primary" (click)="goToCreateNotice()">Create</button> -->
+            <button type="button" class="btn btn-sm btn-primary" (click)="goToCreateNotice()">Create</button>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search" aria-label="search"
+                    aria-describedby="basic-addon1" (keyup)="onSearch($event)">
+            </div>
+        </div>
+        <div class="col-md-12">
+            <table class="table" #noticeTable>
+                <thead>
+                    <tr>
+                        <th scope="col">S.No.</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Message</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Created By</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        *ngFor="let item of allNoticeDetails | paginate: { itemsPerPage: limit, currentPage: page, totalItems: totalItems }; let i = index">
+                        <th>{{i+1}}</th>
+                        <td>{{item.title}}</td>
+                        <td>{{item.message}}</td>
+                        <td>
+                            <div [ngSwitch]="item.type">
+                                <div *ngSwitchCase="'urgent'">
+                                    <button class="btn btn-sm btn-outline-danger">
+                                        {{item.type}}
+                                    </button>
+                                </div>
+                                <div *ngSwitchCase="'general'">
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        {{item.type}}
+                                    </button>
+                                </div>
+                                <div *ngSwitchDefault>No option</div>
+                            </div>
+
+                        </td>
+                        <td>{{item.createdBy}}</td>
+                        <td>
+                            <div class="action-btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-sm btn-success"
+                                    (click)="goToviewNoticeById(item)"><app-icon [name]="'eye'"></app-icon></button>
+                                <button type="button" class="btn btn-sm btn-warning"
+                                    (click)="gotToEditNotice(item)"><app-icon [name]="'pencil'"></app-icon></button>
+                                <button type="button" class="btn btn-sm btn-danger"
+                                    (click)="deleteNoticeRecordById(item)"><app-icon
+                                        [name]="'trash'"></app-icon></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls [currentPage]="page" [totalItems]="totalItems" [itemsPerPage]="limit"
+                (pageChange)="onPageChange($event)">
+            </pagination-controls>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<!-- {{selectedProductIds | json}} -->
+<ng-container *ngIf="isLoading"> 
+    <div class="text-center">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <h3>Loading please wait</h3>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="!isLoading">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Sno</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of productList; let i = index">
+            <td>{{(i + 1)}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.price}}</td>
+            <td>
+                <div class="input-group input-group-sm mb-3">
+                    <button class="btn btn-sm btn-success" (click)="increase(i)">+</button>
+                    <input type="text" class="form-control quantity-box" [value]="item.quantity">
+                    <button class="btn btn-sm btn-danger" (click)="decrease(i)">-</button>
+                </div>
+            </td>
+            <td>
+                <button type="button" class="btn btn-sm btn-warning" [disabled]="item.quantity <= 0" (click)="addToCart(item)">ADD TO CART</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-success btn-sm" [disabled]="selectedProductIds.length <= 0" (click)="proceedToCheckOut()">PROCEED TO CHECKOUT({{selectedProductIds.length}})</button>
+</div>
+</ng-container>

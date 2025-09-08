@@ -1,0 +1,28 @@
+<p>meeting-form-works!</p>
+
+<form [formGroup]="meetingForm" (ngSubmit)= "onMeetingCreation()">
+  
+  <div class="mb-3">
+      <label for="" class="form-label">Title</label>
+      <input type="text" formControlName="title" class="form-control" placeholder="">
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">start Date Time</label>
+      <input type="datetime-local" formControlName="startDateTime" class="form-control" placeholder="">
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">End Date Time</label>
+      <input type="datetime-local" formControlName="endDateTime" class="form-control" placeholder="">
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Agenda</label>
+      <input type="text" formControlName="agenda" class="form-control" placeholder="">
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Description</label>
+      <input type="text" formControlName="description" class="form-control" placeholder="">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+

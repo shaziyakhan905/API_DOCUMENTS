@@ -1,0 +1,132 @@
+<div class="container-fluid">
+    <i class="bi bi-plus-circle"></i>
+<i class="bi bi-trash"></i>
+
+    <div class="row">
+        <div class="col-md-6">
+            <img [src]="profileImgageUrl" (click)="onSelectprofileImage()" class="rounded-circle profile-image"
+                alt="...">
+
+            <!-- Hidden File Input -->
+            <input type="file" #fileInput (change)="onProfileImageSelected($event)" style="display: none;" />
+        </div>
+        <div class="col-md-6">
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-sm btn-primary" *ngIf="!isEditing" (click)="editProfile()">Edit
+                </button>
+                <button type="button" class="btn btn-sm btn-danger" *ngIf="isEditing" (click)="cancelEditing()">Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+    <form [formGroup]="userProfileForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">First Name</label>
+                    <input type="text" class="form-control" formControlName="firstName" placeholder="firstName">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" formControlName="lastName" placeholder="lastName">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Email Id</label>
+                    <input type="text" class="form-control" formControlName="emailId" placeholder="emailId">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Mobile No.</label>
+                    <input type="number" class="form-control" formControlName="mobileNo" placeholder="mobileNo">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Country</label>
+                    <select class="form-select" formControlName="country" (change)="onCountryChange($event)"
+                        aria-label="Default select example">
+                        <option [value]="country._id" *ngFor="let country of countryList">{{country?.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">State</label>
+                    <select class="form-select" formControlName="state" (change)="onStateChange($event)"
+                        aria-label="Default select example">
+                        <option [value]="state._id" *ngFor="let state of stateList">{{state?.name}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">City Name</label>
+                    <select class="form-select" formControlName="city" aria-label="Default select example">
+                        <option [value]="city._id" *ngFor="let city of cityList">{{city?.name}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Skills</h4>
+                <button *ngIf="isEditing" type="button" class="btn btn-sm btn-primary mb-3" (click)="addSkill()">Add Skill</button>
+
+                <div formArrayName="skills">
+                    <div *ngFor="let skill of skills.controls; let i = index" [formGroupName]="i"
+                        class="mb-3 border p-3 rounded">
+                        <div class="row g-2">
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" formControlName="name" placeholder="Skill Name">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" formControlName="experience"
+                                    placeholder="Experience">
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-select" formControlName="level">
+                                    <option value="">Select Level</option>
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Expert">Expert</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-1 d-flex align-items-center">
+                                <button type="button" class="btn btn-danger btn-sm" (click)="removeSkill(i)"
+                                    *ngIf="i > 2 && isEditing">
+                                <app-icon [name]="'trash'"></app-icon>
+                                <app-icon [name]="'houses'"></app-icon>
+                                <app-icon [name]="'pencil-square'"></app-icon>
+                                <!-- <img src="../../../../../assets/icons/trash.svg"> -->
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-sm btn-primary" *ngIf="isEditing">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

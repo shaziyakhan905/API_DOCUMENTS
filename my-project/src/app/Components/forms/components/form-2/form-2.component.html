@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>One account.All of Google</h3>
+            <p>Sign in to continue to Gmail</p>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                    <div class="wrap-card">
+                        <form [formGroup]="loginForm" (ngSubmit)="isSubmitted()">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1"></label>
+                                <!-- {{userLogin.get('email')?.errors | json}}     -->
+                                <input type="email" class="form-control" formControlName="email" placeholder="Email">
+                                <ng-container *ngIf="issubmitted && userLogin.get('email')?.errors">
+                                    <!-- {{userLogin.get('email')?.errors | json}}  -->
+                                    <div class="validation-error" *ngIf="userLogin.get('email')?.errors?.['required']">
+                                        This is mandatory
+                                    </div>
+                                    <div class="validation-error" *ngIf="userLogin.get('email')?.errors?.['email']">
+                                        Please fill required length
+                                    </div>
+                                </ng-container>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1"></label>
+                                <input type="password" class="form-control" formControlName="password"
+                                    placeholder="Password">
+                                <ng-container *ngIf="issubmitted && userLogin.get('password')?.errors">
+                                    <div class="validation-error"
+                                        *ngIf="userLogin.get('password')?.errors?.['required']">
+                                        This is mandatory
+                                    </div>
+                                    <div class="validation-error"
+                                        *ngIf="userLogin.get('password')?.errors?.['minlength']">
+                                        Please fill till min length
+                                    </div>
+                                    <div class="validation-error"
+                                        *ngIf="userLogin.get('password')?.errors?.['maxlength']">
+                                        Do not exceed max length
+                                    </div>
+                                </ng-container>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Sign in</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<!-- {{advertisementCollection | json}} -->
+
+<div class="card">
+  <div class="card-header text-bg-info">
+    Advertisements
+  </div>
+  <div class="card-body">
+    <ul class="list-group list-group-flush">
+      <ng-container *ngFor="let advertisement of advertisementCollection">
+        <li class="list-group-item">
+          {{advertisement.title}}
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</div>

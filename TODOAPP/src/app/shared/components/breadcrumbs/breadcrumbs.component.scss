@@ -1,0 +1,22 @@
+nav {
+    background: #787777;
+    padding: 0px 5px;
+
+    .breadcrumb {
+        .breadcrumb-item {
+            line-height: 40px;
+
+            a {
+                color: white;
+                font-size: 14px;
+                text-transform: uppercase;
+                text-decoration: none;
+                font-style: italic;
+            }
+        }
+
+        .breadcrumb-item.active {
+            color: white;
+        }
+    }
+}

@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="cardbody">
+                    <form [formGroup]="noticeForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Title</label>
+                            <input type="text" class="form-control" placeholder="Title" formControlName="title">
+                            <ng-container *ngIf="isSubmitted && noticeFormData.get('title')?.errors">
+                                <div class="validation-error" *ngIf="noticeFormData.get('title')?.errors?.['required']">
+                                    This field is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">Message</label>
+                            <input type="text" class="form-control" formControlName="message" placeholder="Message">
+                            <ng-container *ngIf="isSubmitted && noticeFormData.get('message')?.errors">
+                                <div class="validation-error"
+                                    *ngIf="noticeFormData.get('message')?.errors?.['required']">
+                                    This field is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInputType" class="form-label">Type</label>
+                            <select class="form-select" aria-label="Default select example" formControlName="type">
+                                <option selected value="-Select--">--Select--</option>
+                                <option value="Urgent">Urgent</option>
+                                <option value="General">General</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupCreatedBy" class="form-label">CreatedBy</label>
+                            <input type="text" class="form-control" formControlName="createdBy" placeholder="createdBy">
+                            <ng-container *ngIf="isSubmitted && noticeFormData.get('createdBy')?.errors">
+                                <div class="validation-error"
+                                    *ngIf="noticeFormData.get('createdBy')?.errors?.['required']">
+                                    This field is mandatory
+                                </div>
+                            </ng-container>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

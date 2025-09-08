@@ -1,0 +1,43 @@
+ <!-- {{userList | json}} -->
+  <ng-container *ngIf="isLoading"> 
+    <div class="text-center">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <h3>Loading please wait</h3>
+    </div>
+</ng-container>
+<ng-container *ngIf="!isLoading">
+  <div class="container-fluid">
+    <div class="row">
+        <div class=" col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">EmailId</th>
+                        <th scope="col">Mobile No.</th>
+                        <th scope="col">Country Name</th>
+                        <th scope="col">State Name</th>
+                        <th scope="col">City Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{userList.firstName}}</td>
+                        <td>{{userList.lastName}}</td>
+                        <td>{{userList.emailId}}</td>
+                        <td>{{userList.mobileNo}}</td>
+                        <td>{{userList.country?.name}}</td>
+                        <td>{{userList.state?.name}}</td>
+                        <td>{{userList.city?.name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+  </ng-container>
+
+

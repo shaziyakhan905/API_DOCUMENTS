@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-header text-bg-dark">
+    Notice
+  </div>
+  <div class="card-body">
+    <ul class="list-group list-group-flush">
+    <ng-container *ngFor="let notice of noticCollection">
+      <li class="list-group-item">
+        {{notice.title}}
+        <div>
+          {{notice.dateTime | date:"medium"}}
+        </div>
+      </li>
+    </ng-container>
+  </ul>
+  </div>
+</div>
